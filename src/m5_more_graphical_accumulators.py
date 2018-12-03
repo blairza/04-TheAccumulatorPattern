@@ -9,8 +9,8 @@ Additionally, it emphasizes that you must
 before you can implement a solution to the problem in Python. 
   
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher, Mark Hays,
-         Aaron Wilkin, their colleagues, and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         Aaron Wilkin, their colleagues, and Zane Blair.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -111,6 +111,16 @@ def draw_squares_from_circle(n, circle, window):
     #          ** FIRST DO A CONCRETE EXAMPLE BY HAND! **
     ###########################################################################
     # -------------------------------------------------------------------------
+    circle.attach_to(window)
+    square = rg.Square(circle.center, 2 * circle.radius)
+    square.attach_to(window)
+    for k in range(n-1):
+        point = rg.Point(square. + k*circle.radius,square. + k*circle.radius)
+        rect = rg.Square(point,2*circle.radius)
+        circle.move_center_to()
+        rect.attach_to_window(window)
+    window.render()
+
 
 
 def run_test_draw_circles_from_rectangle():
@@ -189,6 +199,10 @@ def draw_circles_from_rectangle(m, n, rectangle, window):
     #          ** FIRST DO A CONCRETE EXAMPLE BY HAND! **
     ###########################################################################
     # -------------------------------------------------------------------------
+    rectangle.attach_to(window)
+    for k in range(m):
+        circle = rg.Circle(rectangle.get_center(),(rectangle.get_height()/2))
+        circle.attach_to(window)
 
 
 def run_test_draw_lines_from_rectangles():
